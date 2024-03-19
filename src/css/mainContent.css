@@ -1,0 +1,36 @@
+/* header */
+.link{
+  color: white;
+  text-decoration: none;
+}
+link:hover{
+  text-decoration: underline;
+  color: blue;
+}
+
+/* product */
+.custom-card {
+  width: 18rem;
+  height: 100%;
+  color: white;
+}
+.cardImage {
+  height: 50%;
+  object-fit: cover;
+}
+.viewButton {
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* product.jsx */
+  .productImage{
+    height: 50%;
+    width: auto;
+  }
+  .productContainer{
+    height: 63vh;
+  }
