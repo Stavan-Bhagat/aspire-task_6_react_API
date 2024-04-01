@@ -11,13 +11,11 @@ function Header() {
           <Navbar.Brand to="/">ShoppingSite</Navbar.Brand>
           <Nav className="ms-auto">
             <Nav.Link>
-              {" "}
               <Link to="/" className="link">
                 Home
               </Link>
             </Nav.Link>
             <Nav.Link>
-              {" "}
               <Link to="/about" className="link">
                 About Us
               </Link>

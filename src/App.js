@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <>
-        <Header />
+      <Header />
         <Routes>
           <Route path="/product/:id" element={<Product />} />
           <Route path="/" element={<Main />} />

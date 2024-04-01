@@ -3,6 +3,7 @@ import { Card, Button, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../css/mainContent.css";
+import { PRODUCTS_URL } from "../constant/constant";
 
 const ProductList = () => {
   const [data, setData] = useState(null);
@@ -12,7 +13,7 @@ const ProductList = () => {
 
   async function fetchData() {
     try {
-      const response = await axios.get("https://dummyjson.com/products");
+      const response = await axios.get(PRODUCTS_URL);
       setData(response.data);
       setLoading(false);
     } catch (error) {
@@ -46,26 +47,33 @@ const ProductList = () => {
 
   return (
     <>
-      {data && data.products.map((item, index) => (
-        <Col sm={4} className="my-3" key={index}>
-          <Card className="custom-card">
-            <Card.Img className="cardImage" variant="top" src={item.images[0]} />
-            <Card.Body className="bg-secondary">
-              <Card.Title className="title text-warning">{item.title}</Card.Title>
-              <Card.Text>{item.description}</Card.Text>
-              <div className=" mt-auto">
-                <Button
-                  variant="primary"
-                  className="viewButton"
-                  onClick={() => viewProduct(item.id)}
-                >
-                  View
-                </Button>
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
+      {data &&
+        data.products.map((item, index) => (
+          <Col sm={4} className="my-3" key={index}>
+            <Card className="custom-card">
+              <Card.Img
+                className="cardImage"
+                variant="top"
+                src={item.images[0]}
+              />
+              <Card.Body className="bg-secondary">
+                <Card.Title className="title text-warning">
+                  {item.title}
+                </Card.Title>
+                <Card.Text>{item.description}</Card.Text>
+                <div className=" mt-auto">
+                  <Button
+                    variant="primary"
+                    className="viewButton"
+                    onClick={() => viewProduct(item.id)}
+                  >
+                    View
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
     </>
   );
 };
